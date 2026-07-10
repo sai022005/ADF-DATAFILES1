@@ -1,0 +1,353 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "sai-adf-18june"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"GitHub1_credential": {
+			"type": "secureString",
+			"metadata": "Secure string for 'credential' of 'GitHub1'"
+		},
+		"LS_AWS_S3_secretAccessKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'secretAccessKey' of 'LS_AWS_S3'"
+		},
+		"LS_aws_to_aazure_secretAccessKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'secretAccessKey' of 'LS_aws_to_aazure'"
+		},
+		"MySql1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'MySql1'"
+		},
+		"MySql_onpremises_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'MySql_onpremises'"
+		},
+		"ls_AzureSqlDatabase_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_AzureSqlDatabase'"
+		},
+		"ls_azuresqldatabase_incremental_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_azuresqldatabase_incremental'"
+		},
+		"sql_incremetalload_onpremises_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'sql_incremetalload_onpremises'"
+		},
+		"sql_onpremises_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'sql_onpremises'"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://saiazuredatalakestorage.dfs.core.windows.net/"
+		},
+		"GitHub1_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": " sai022005"
+		},
+		"LS_AWS_S3_properties_typeProperties_accessKeyId": {
+			"type": "string",
+			"defaultValue": "AKIA36I7PG4KAWECH55Z"
+		},
+		"LS_GITHUB_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com/"
+		},
+		"LS_aws_to_aazure_properties_typeProperties_accessKeyId": {
+			"type": "string",
+			"defaultValue": "AKIAV32244DPGABKCEFD"
+		},
+		"MySql1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "127.0.0.1"
+		},
+		"MySql1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "b2mysql"
+		},
+		"MySql1_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "root"
+		},
+		"MySql_onpremises_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "127.0.0.1"
+		},
+		"MySql_onpremises_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "b2mysql"
+		},
+		"MySql_onpremises_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "root"
+		},
+		"ls_AzureSqlDatabase_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "serversqldatabasejuly.database.windows.net"
+		},
+		"ls_AzureSqlDatabase_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "azure_sql_database"
+		},
+		"ls_AzureSqlDatabase_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sai"
+		},
+		"ls_azuresqldatabase_incremental_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "serversqldatabasejuly.database.windows.net"
+		},
+		"ls_azuresqldatabase_incremental_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "azure_sql_database"
+		},
+		"ls_azuresqldatabase_incremental_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "SAI"
+		},
+		"sql_incremetalload_onpremises_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "127.0.0.1"
+		},
+		"sql_incremetalload_onpremises_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "b2mysql"
+		},
+		"sql_incremetalload_onpremises_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "root"
+		},
+		"sql_onpremises_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "127.0.0.1"
+		},
+		"sql_onpremises_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "sys"
+		},
+		"sql_onpremises_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "root"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "sai-adf-18june_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
+					"GitHub1_credential": {
+						"value": "[parameters('GitHub1_credential')]"
+					},
+					"LS_AWS_S3_secretAccessKey": {
+						"value": "[parameters('LS_AWS_S3_secretAccessKey')]"
+					},
+					"LS_aws_to_aazure_secretAccessKey": {
+						"value": "[parameters('LS_aws_to_aazure_secretAccessKey')]"
+					},
+					"MySql1_password": {
+						"value": "[parameters('MySql1_password')]"
+					},
+					"ls_AzureSqlDatabase_password": {
+						"value": "[parameters('ls_AzureSqlDatabase_password')]"
+					},
+					"ls_azuresqldatabase_incremental_password": {
+						"value": "[parameters('ls_azuresqldatabase_incremental_password')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"GitHub1_properties_typeProperties_username": {
+						"value": "[parameters('GitHub1_properties_typeProperties_username')]"
+					},
+					"LS_AWS_S3_properties_typeProperties_accessKeyId": {
+						"value": "[parameters('LS_AWS_S3_properties_typeProperties_accessKeyId')]"
+					},
+					"LS_GITHUB_properties_typeProperties_url": {
+						"value": "[parameters('LS_GITHUB_properties_typeProperties_url')]"
+					},
+					"LS_aws_to_aazure_properties_typeProperties_accessKeyId": {
+						"value": "[parameters('LS_aws_to_aazure_properties_typeProperties_accessKeyId')]"
+					},
+					"MySql1_properties_typeProperties_server": {
+						"value": "[parameters('MySql1_properties_typeProperties_server')]"
+					},
+					"MySql1_properties_typeProperties_database": {
+						"value": "[parameters('MySql1_properties_typeProperties_database')]"
+					},
+					"MySql1_properties_typeProperties_username": {
+						"value": "[parameters('MySql1_properties_typeProperties_username')]"
+					},
+					"ls_AzureSqlDatabase_properties_typeProperties_server": {
+						"value": "[parameters('ls_AzureSqlDatabase_properties_typeProperties_server')]"
+					},
+					"ls_AzureSqlDatabase_properties_typeProperties_database": {
+						"value": "[parameters('ls_AzureSqlDatabase_properties_typeProperties_database')]"
+					},
+					"ls_AzureSqlDatabase_properties_typeProperties_userName": {
+						"value": "[parameters('ls_AzureSqlDatabase_properties_typeProperties_userName')]"
+					},
+					"ls_azuresqldatabase_incremental_properties_typeProperties_server": {
+						"value": "[parameters('ls_azuresqldatabase_incremental_properties_typeProperties_server')]"
+					},
+					"ls_azuresqldatabase_incremental_properties_typeProperties_database": {
+						"value": "[parameters('ls_azuresqldatabase_incremental_properties_typeProperties_database')]"
+					},
+					"ls_azuresqldatabase_incremental_properties_typeProperties_userName": {
+						"value": "[parameters('ls_azuresqldatabase_incremental_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "sai-adf-18june_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'sai-adf-18june_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "sai-adf-18june_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'sai-adf-18june_ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "sai-adf-18june_ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"MySql_onpremises_password": {
+						"value": "[parameters('MySql_onpremises_password')]"
+					},
+					"sql_incremetalload_onpremises_password": {
+						"value": "[parameters('sql_incremetalload_onpremises_password')]"
+					},
+					"sql_onpremises_password": {
+						"value": "[parameters('sql_onpremises_password')]"
+					},
+					"MySql_onpremises_properties_typeProperties_server": {
+						"value": "[parameters('MySql_onpremises_properties_typeProperties_server')]"
+					},
+					"MySql_onpremises_properties_typeProperties_database": {
+						"value": "[parameters('MySql_onpremises_properties_typeProperties_database')]"
+					},
+					"MySql_onpremises_properties_typeProperties_username": {
+						"value": "[parameters('MySql_onpremises_properties_typeProperties_username')]"
+					},
+					"sql_incremetalload_onpremises_properties_typeProperties_server": {
+						"value": "[parameters('sql_incremetalload_onpremises_properties_typeProperties_server')]"
+					},
+					"sql_incremetalload_onpremises_properties_typeProperties_database": {
+						"value": "[parameters('sql_incremetalload_onpremises_properties_typeProperties_database')]"
+					},
+					"sql_incremetalload_onpremises_properties_typeProperties_username": {
+						"value": "[parameters('sql_incremetalload_onpremises_properties_typeProperties_username')]"
+					},
+					"sql_onpremises_properties_typeProperties_server": {
+						"value": "[parameters('sql_onpremises_properties_typeProperties_server')]"
+					},
+					"sql_onpremises_properties_typeProperties_database": {
+						"value": "[parameters('sql_onpremises_properties_typeProperties_database')]"
+					},
+					"sql_onpremises_properties_typeProperties_username": {
+						"value": "[parameters('sql_onpremises_properties_typeProperties_username')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'sai-adf-18june_ArmTemplate_2')]"
+			]
+		},
+		{
+			"name": "sai-adf-18june_ArmTemplate_4",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_4.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'sai-adf-18june_ArmTemplate_3')]"
+			]
+		}
+	]
+}

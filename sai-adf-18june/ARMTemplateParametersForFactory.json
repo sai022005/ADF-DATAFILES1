@@ -1,0 +1,108 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "sai-adf-18june"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"GitHub1_credential": {
+			"value": ""
+		},
+		"LS_AWS_S3_secretAccessKey": {
+			"value": ""
+		},
+		"LS_aws_to_aazure_secretAccessKey": {
+			"value": ""
+		},
+		"MySql1_password": {
+			"value": ""
+		},
+		"MySql_onpremises_password": {
+			"value": ""
+		},
+		"ls_AzureSqlDatabase_password": {
+			"value": ""
+		},
+		"ls_azuresqldatabase_incremental_password": {
+			"value": ""
+		},
+		"sql_incremetalload_onpremises_password": {
+			"value": ""
+		},
+		"sql_onpremises_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://saiazuredatalakestorage.dfs.core.windows.net/"
+		},
+		"GitHub1_properties_typeProperties_username": {
+			"value": " sai022005"
+		},
+		"LS_AWS_S3_properties_typeProperties_accessKeyId": {
+			"value": "AKIA36I7PG4KAWECH55Z"
+		},
+		"LS_GITHUB_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/"
+		},
+		"LS_aws_to_aazure_properties_typeProperties_accessKeyId": {
+			"value": "AKIAV32244DPGABKCEFD"
+		},
+		"MySql1_properties_typeProperties_server": {
+			"value": "127.0.0.1"
+		},
+		"MySql1_properties_typeProperties_database": {
+			"value": "b2mysql"
+		},
+		"MySql1_properties_typeProperties_username": {
+			"value": "root"
+		},
+		"MySql_onpremises_properties_typeProperties_server": {
+			"value": "127.0.0.1"
+		},
+		"MySql_onpremises_properties_typeProperties_database": {
+			"value": "b2mysql"
+		},
+		"MySql_onpremises_properties_typeProperties_username": {
+			"value": "root"
+		},
+		"ls_AzureSqlDatabase_properties_typeProperties_server": {
+			"value": "serversqldatabasejuly.database.windows.net"
+		},
+		"ls_AzureSqlDatabase_properties_typeProperties_database": {
+			"value": "azure_sql_database"
+		},
+		"ls_AzureSqlDatabase_properties_typeProperties_userName": {
+			"value": "sai"
+		},
+		"ls_azuresqldatabase_incremental_properties_typeProperties_server": {
+			"value": "serversqldatabasejuly.database.windows.net"
+		},
+		"ls_azuresqldatabase_incremental_properties_typeProperties_database": {
+			"value": "azure_sql_database"
+		},
+		"ls_azuresqldatabase_incremental_properties_typeProperties_userName": {
+			"value": "SAI"
+		},
+		"sql_incremetalload_onpremises_properties_typeProperties_server": {
+			"value": "127.0.0.1"
+		},
+		"sql_incremetalload_onpremises_properties_typeProperties_database": {
+			"value": "b2mysql"
+		},
+		"sql_incremetalload_onpremises_properties_typeProperties_username": {
+			"value": "root"
+		},
+		"sql_onpremises_properties_typeProperties_server": {
+			"value": "127.0.0.1"
+		},
+		"sql_onpremises_properties_typeProperties_database": {
+			"value": "sys"
+		},
+		"sql_onpremises_properties_typeProperties_username": {
+			"value": "root"
+		}
+	}
+}
