@@ -1,0 +1,14 @@
+{
+	"name": "LS_aws_to_aazure",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AmazonS3",
+		"typeProperties": {
+			"serviceUrl": "https://s3.amazonaws.com",
+			"accessKeyId": "AKIAV32244DPGABKCEFD",
+			"authenticationType": "AccessKey",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDM0MzM2MTZBLThFOUMtNEUyQS04M0U4LTM2NkE3RThFQjdFNl85ZDhmY2FjOS01MzIwLTRlZDEtOWQ2OS1kYmIzMGQwNzU2ODAiDQp9"
+		}
+	}
+}

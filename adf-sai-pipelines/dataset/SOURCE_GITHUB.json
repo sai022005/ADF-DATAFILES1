@@ -1,0 +1,23 @@
+{
+	"name": "SOURCE_GITHUB",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_GITHUB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "sai022005/ADF-DATAFILES/refs/heads/main/ADF-DATAFILES/sales.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

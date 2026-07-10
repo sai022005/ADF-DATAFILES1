@@ -1,0 +1,16 @@
+{
+	"name": "mysql_incremental_onpremises",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "sql_incremetalload_onpremises",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "MySqlTable",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "`orders_target`"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

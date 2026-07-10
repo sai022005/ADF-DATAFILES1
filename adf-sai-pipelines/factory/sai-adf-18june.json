@@ -1,0 +1,15 @@
+{
+	"name": "sai-adf-18june",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "2a468c1b-dfbf-448f-b202-7e5d1ebe8eaa",
+		"tenantId": "40f9cdda-8a96-436b-9a2b-7b91189ff1fd"
+	}
+}

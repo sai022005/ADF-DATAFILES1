@@ -1,0 +1,16 @@
+{
+	"name": "onpremises_source",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "sql_onpremises",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "MySqlTable",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "`host_summary`"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
